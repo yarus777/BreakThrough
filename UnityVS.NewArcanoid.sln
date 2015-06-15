@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityVS.NewArcanoid.CSharp", "UnityVS.NewArcanoid.CSharp.csproj", "{8ECAC72F-9D64-D001-6F59-0F78A1E000DA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8ECAC72F-9D64-D001-6F59-0F78A1E000DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ECAC72F-9D64-D001-6F59-0F78A1E000DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8ECAC72F-9D64-D001-6F59-0F78A1E000DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8ECAC72F-9D64-D001-6F59-0F78A1E000DA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
