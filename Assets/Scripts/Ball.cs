@@ -29,12 +29,10 @@ public class Ball : MonoBehaviour {
         }
     }
 
-    void OnCollisionEnter2D(Collision2D coll)
-    {
-        Debug.Log("1");
+    void OnTriggerEnter2D(Collider2D coll)
+    {      
         if (coll.gameObject.GetComponent<Ground> () != null)  
-        {
-            Debug.Log("2");
+        {          
             OnBallLost();
         }
     }
