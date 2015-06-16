@@ -22,7 +22,7 @@ public class InputDetector : MonoBehaviour
         ball.SendBall();
     }
 
-    private Vector2 pointerOffset;
+    private Vector3 pointerOffset;
 
     public void OnDown ()
     {
@@ -32,7 +32,13 @@ public class InputDetector : MonoBehaviour
 
     public void OnDrag()
     {
-        Vector2 pos = camera.ScreenToWorldPoint(UnityEngine.Input.mousePosition);
-        platform.GetComponent<RectTransform>().anchoredPosition = new Vector2((pos - pointerOffset).x, yPosition);
+        Vector2 pos = camera.ScreenToWorldPoint(UnityEngine.Input.mousePosition) - pointerOffset;
+        var platformSize = platform.GetComponent<RectTransform>().sizeDelta;
+        if (camera.WorldToViewportPoint(pos + platformSize/2).x > 1 ||
+            camera.WorldToViewportPoint(pos - platformSize/2).x < 0)
+        {
+            return;
+        }
+        platform.GetComponent<RectTransform>().anchoredPosition = new Vector2(pos.x, yPosition);
     }
 }
