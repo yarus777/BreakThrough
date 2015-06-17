@@ -7,14 +7,16 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{8ECAC72F-9D64-D001-6F59-0F78A1E000DA}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <AssemblyName>Assembly-CSharp</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>Android:13</UnityBuildTarget>
     <UnityVersion>4.6.1f1</UnityVersion>
@@ -56,11 +58,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Ball.cs" />
-    <Compile Include="Assets\Scripts\BallContoller.cs" />
+    <Compile Include="Assets\Scripts\Ball\Ball.cs" />
+    <Compile Include="Assets\Scripts\Ball\BallContoller.cs" />
+    <Compile Include="Assets\Scripts\Block\Block.cs" />
+    <Compile Include="Assets\Scripts\Block\BlockController.cs" />
+    <Compile Include="Assets\Scripts\Block\BlockInfo.cs" />
+    <Compile Include="Assets\Scripts\Block\Type\MetalBlock.cs" />
+    <Compile Include="Assets\Scripts\Block\Type\StoneBlock.cs" />
+    <Compile Include="Assets\Scripts\Block\Type\WoodBlock.cs" />
+    <Compile Include="Assets\Scripts\Game.cs" />
     <Compile Include="Assets\Scripts\Ground.cs" />
     <Compile Include="Assets\Scripts\InputDetector.cs" />
-    <Compile Include="Assets\Scripts\Platform.cs" />
+    <Compile Include="Assets\Scripts\Platform\Platform.cs" />
+    <Compile Include="Assets\Scripts\Platform\PlatformController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
 </Project>
