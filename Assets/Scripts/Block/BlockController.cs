@@ -30,7 +30,8 @@ namespace Assets.Scripts.Block
 
         private void OnBlockStriked(Block block)
         {
-            Destroy(block);
+            blockList.Remove(block);
+            Destroy(block.gameObject);
         }
     }
 }

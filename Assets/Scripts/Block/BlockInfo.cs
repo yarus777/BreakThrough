@@ -1,8 +1,10 @@
 ﻿
 
+using UnityEngine;
+
 namespace Assets.Scripts.Block
 {
-    public class BlockInfo
+    public class BlockInfo: MonoBehaviour
     {
         public enum BlockType
         {   Metal,

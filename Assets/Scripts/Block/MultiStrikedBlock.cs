@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+//using Assets.Scripts.Block;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +10,7 @@ namespace Assets.Scripts.Block
 {
    abstract class MultiStrikedBlock : Block
     {
-       [SerializeField]
+       [Serializable]
 
        public class BlockLevelData
        {
@@ -27,7 +28,12 @@ namespace Assets.Scripts.Block
            set
            {
                level = value;
-               texture.sprite = LevelsData.FirstOrDefault(x => x.Level == level).Texture;
+               var sprite = LevelsData.FirstOrDefault(x => x.Level == level);
+               if (sprite !=null)
+               {
+                  texture.sprite = sprite.Texture; 
+               }
+               
            }
        }
 
@@ -38,14 +44,15 @@ namespace Assets.Scripts.Block
        public override void Init(BlockInfo blockInfo)
        {
            base.Init(blockInfo);
-           Level = InitialLevel;
            texture = GetComponent<Image>();
+           Level = InitialLevel;
+           
        }
 
        protected override void OnBallTouched()
        {
            Level--;
-           if (Level == 0)
+           if (Level < 0)
            {
                OnBlockStriked();
            }
