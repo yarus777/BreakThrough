@@ -5,11 +5,16 @@ using System.Text;
 
 namespace Assets.Scripts.Block.Type
 {
-    class WoodBlock : Block
+    class WoodBlock : MultiStrikedBlock
     {
         public override BlockInfo.BlockType Type
         {
             get { return BlockInfo.BlockType.Wood; }
+        }
+
+        protected override int InitialLevel
+        {
+            get { return 0; }
         }
     }
 }

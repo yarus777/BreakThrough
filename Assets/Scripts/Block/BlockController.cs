@@ -10,16 +10,6 @@ namespace Assets.Scripts.Block
         public Block[] BlocksPrefabs;
         private List<Block> blockList = new List<Block>(); 
 
-        private void Start()
-        {
-
-        }
-
-        private void Update()
-        {
-
-        }
-
         public void Create(IEnumerable<BlockInfo> blocks)
         {
             foreach (var blockInfo in blocks)
@@ -34,7 +24,13 @@ namespace Assets.Scripts.Block
                 var block = blockObject.GetComponent<Block>();
                 block.Init(blockInfo);
                 blockList.Add(block);
+                block.Striked += OnBlockStriked;
             }
+        }
+
+        private void OnBlockStriked(Block block)
+        {
+            Destroy(block);
         }
     }
 }

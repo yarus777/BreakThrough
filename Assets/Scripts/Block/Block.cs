@@ -11,9 +11,9 @@ namespace Assets.Scripts.Block
 	
         }
 
-        public virtual void OnBallTouched()
+        protected virtual void OnBallTouched()
         {
-            OnBlockStiked();
+            OnBlockStriked();
         }
 
         void OnCollisionEnter2D(Collision2D col)
@@ -25,7 +25,7 @@ namespace Assets.Scripts.Block
         public delegate void OnStrikedDelegate(Block block);
 
         public event OnStrikedDelegate Striked;
-        private void OnBlockStiked()
+        protected void OnBlockStriked()
         {
             if (Striked != null)
             {
@@ -35,7 +35,7 @@ namespace Assets.Scripts.Block
 
         public  abstract BlockInfo.BlockType Type { get; }
 
-        public void Init(BlockInfo blockInfo)
+        public virtual void Init(BlockInfo blockInfo)
         {
             GetComponent<RectTransform>().anchoredPosition = new Vector2(blockInfo.X, blockInfo.Y);
         }
