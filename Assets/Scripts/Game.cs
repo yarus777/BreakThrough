@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Ball;
 using Assets.Scripts.Block;
+using Assets.Scripts.Block.Type;
 using Assets.Scripts.Platform;
 using UnityEngine;
 
@@ -15,6 +16,7 @@ namespace Assets.Scripts
         void Start ()
         {
             ballController.ball.Lost += OnBallLost;
+            blockContoller.Create(new[] { new BlockInfo { X = 0, Y = 0, Type = BlockInfo.BlockType.Wood }, new BlockInfo { X = 200, Y = 300, Type = BlockInfo.BlockType.Stone }, new BlockInfo { X = -200, Y = -200, Type = BlockInfo.BlockType.Metal } });
         }
 
         private void OnBallLost(Ball.Ball ball)

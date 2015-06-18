@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scripts\Block\Block.cs" />
     <Compile Include="Assets\Scripts\Block\BlockController.cs" />
     <Compile Include="Assets\Scripts\Block\BlockInfo.cs" />
+    <Compile Include="Assets\Scripts\Block\MultiStrikedBlock.cs" />
     <Compile Include="Assets\Scripts\Block\Type\MetalBlock.cs" />
     <Compile Include="Assets\Scripts\Block\Type\StoneBlock.cs" />
     <Compile Include="Assets\Scripts\Block\Type\WoodBlock.cs" />

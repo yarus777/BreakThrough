@@ -8,7 +8,7 @@ namespace Assets.Scripts.Block
     {
 
         public Block[] BlocksPrefabs;
-        private List<Block> blockList; 
+        private List<Block> blockList = new List<Block>(); 
 
         private void Start()
         {
@@ -33,6 +33,7 @@ namespace Assets.Scripts.Block
                 blockObject.transform.parent = transform;
                 var block = blockObject.GetComponent<Block>();
                 block.Init(blockInfo);
+                blockList.Add(block);
             }
         }
     }

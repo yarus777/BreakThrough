@@ -14,11 +14,11 @@ namespace Assets.Scripts.Block
         public int X;
         public int Y;
 
-        public BlockInfo(int x, int y, BlockType type)
+        /*public BlockInfo(int x, int y, BlockType type)
         {
-            X = x;
-            Y = y;
-            Type = type;
-        }
+          X = x;
+          Y = y;
+          Type = type;
+        }*/
     }
 }
