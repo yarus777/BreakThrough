@@ -2,13 +2,16 @@
 
 namespace Assets.Scripts.Block
 {
-    public abstract class Block : MonoBehaviour {
-        void Start () {
-	
-        }
+    public abstract class Block : MonoBehaviour
+    {
+        public event OnStrikedDelegate Touched;
 
-        void Update () {
-	
+        protected void OnBlockTouched()
+        {
+            if (Touched != null)
+            {
+                Touched(this);
+            }
         }
 
         protected virtual void OnBallTouched()
@@ -19,7 +22,11 @@ namespace Assets.Scripts.Block
         void OnCollisionEnter2D(Collision2D col)
         {
             if (col.gameObject.GetComponent<Ball.Ball>() != null)
+            {
                 OnBallTouched();
+                OnBlockTouched();
+            }
+                
         }
 
         public delegate void OnStrikedDelegate(Block block);

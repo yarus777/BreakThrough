@@ -7,7 +7,8 @@ namespace Assets.Scripts.Block
     public class BlockInfo: MonoBehaviour
     {
         public enum BlockType
-        {   Metal,
+        {   
+            Metal,
             Stone,
             Wood
         }
@@ -16,11 +17,5 @@ namespace Assets.Scripts.Block
         public int X;
         public int Y;
 
-        /*public BlockInfo(int x, int y, BlockType type)
-        {
-          X = x;
-          Y = y;
-          Type = type;
-        }*/
     }
 }
