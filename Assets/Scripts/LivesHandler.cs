@@ -10,7 +10,7 @@ namespace Assets.Scripts
         public void OnBallLost()
         {   if (lives>0)
             lives--;
-            Debug.Log(lives);
+            //Debug.Log(lives);
         }
 
         public LivesHandler(int lives)

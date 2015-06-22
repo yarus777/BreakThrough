@@ -22,7 +22,7 @@ namespace Assets.Scripts
             livenum = new LivesHandler(3);
             scorenum = new ScoreHandler(0);
             visualizeText.Init(livenum, scorenum);       
-            Debug.Log(scorenum.score);
+            //Debug.Log(scorenum.score);
             blockContoller.BlockTouched += OnBlockTouched;
             ballController.ball.Lost += OnBallLost;
             blockContoller.Create(new[] { new BlockInfo { X = 0, Y = 0, Type = BlockInfo.BlockType.Wood }, new BlockInfo { X = 200, Y = 300, Type = BlockInfo.BlockType.Stone }, new BlockInfo { X = -200, Y = -200, Type = BlockInfo.BlockType.Metal } });

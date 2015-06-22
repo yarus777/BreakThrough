@@ -1,8 +1,16 @@
 ﻿using UnityEngine;
 
 namespace Assets.Editor.LevelEditor {
-    partial class LevelEditor {
+    partial class LevelEditor
+    {
+        private bool loaded = false;
         protected void OnGUI() {
+            if (!loaded)
+            {
+                Load();
+                loaded = true;
+                return;
+            }
             //base.OnGUI();
             DrawField();
             GUILayout.BeginHorizontal();

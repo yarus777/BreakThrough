@@ -16,7 +16,7 @@ namespace Assets.Scripts
         public void OnBlockTouched()
         {
             score = score + 50;
-            Debug.Log(score);
+            //Debug.Log(score);
         }
     }
 }

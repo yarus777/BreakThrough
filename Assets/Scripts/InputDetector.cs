@@ -25,23 +25,44 @@ namespace Assets.Scripts
         }
 
         private Vector3 pointerOffset;
+        private float prevpos;
+        private bool isPressed = false;
 
         public void OnDown ()
         {
-            Vector2 clickPosition = camera.ScreenToWorldPoint(UnityEngine.Input.mousePosition);
-            pointerOffset = clickPosition - platform.GetComponent<RectTransform>().anchoredPosition;
+            Vector2 clickPosition = camera.ScreenToWorldPoint(Input.mousePosition);
+            //pointerOffset = clickPosition - platform.GetComponent<RectTransform>().anchoredPosition;
+            prevpos = clickPosition.x;
+            isPressed = true;
         }
 
-        public void OnDrag()
+        //public void OnDrag()
+        //{
+        //    Vector2 pos = camera.ScreenToWorldPoint(Input.mousePosition) - pointerOffset;
+        //    var platformSize = platform.GetComponent<RectTransform>().sizeDelta;
+        //    if (camera.WorldToViewportPoint(pos + platformSize / 2).x > 1||
+        //        camera.WorldToViewportPoint(pos - platformSize / 2).x < 0)
+        //    {
+        //        return;
+        //    }
+        //    platform.GetComponent<RectTransform>().anchoredPosition = new Vector2(pos.x, yPosition);
+        //}
+
+        public void FixedUpdate()
         {
-            Vector2 pos = camera.ScreenToWorldPoint(UnityEngine.Input.mousePosition) - pointerOffset;
-            var platformSize = platform.GetComponent<RectTransform>().sizeDelta;
-            if (camera.WorldToViewportPoint(pos + platformSize/2).x > 1 ||
-                camera.WorldToViewportPoint(pos - platformSize/2).x < 0)
+            if (!isPressed)
             {
                 return;
             }
-            platform.GetComponent<RectTransform>().anchoredPosition = new Vector2(pos.x, yPosition);
+            Vector2 pos = camera.ScreenToWorldPoint(Input.mousePosition);
+            platform.rigidbody2D.velocity = new Vector2((pos.x-prevpos)/Time.deltaTime, 0);
+            prevpos = pos.x;
+        }
+
+        public void OnUp()
+        {
+            platform.rigidbody2D.velocity = Vector2.zero;
+            isPressed = false;
         }
     }
 }
