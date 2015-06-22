@@ -9,3 +9,5 @@ C:\Users\yarus_000\Documents\NewArcanoid\Temp\UnityVS_bin\Debug\UnityEngine.UI.x
 C:\Users\yarus_000\Documents\NewArcanoid\obj\Debug\UnityVS.NewArcanoid.CSharp.csprojResolveAssemblyReference.cache
 C:\Users\yarus_000\Documents\NewArcanoid\obj\Debug\Assembly-CSharp.dll
 C:\Users\yarus_000\Documents\NewArcanoid\obj\Debug\Assembly-CSharp.pdb
+C:\Users\yarus_000\Documents\NewArcanoid\Temp\UnityVS_bin\Debug\Assembly-CSharp.dll.CodeAnalysisLog.xml
+C:\Users\yarus_000\Documents\NewArcanoid\Temp\UnityVS_bin\Debug\Assembly-CSharp.dll.lastcodeanalysissucceeded

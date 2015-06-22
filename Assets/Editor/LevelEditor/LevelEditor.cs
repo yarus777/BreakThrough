@@ -4,7 +4,9 @@ using System.IO;
 using System.Linq;
 
 using Assets.Editor.LevelEditor.Panels;
+using Assets.Scripts;
 using Assets.Scripts.Block;
+using Assets.Scripts.Serialization.Levels;
 using UnityEditor;
 
 using UnityEngine;
@@ -12,10 +14,12 @@ using UnityEngine;
 namespace Assets.Editor.LevelEditor {
     partial class LevelEditor : EditorWindow {
         [MenuItem("Arcanoid/Level Editor")]
+   
         public static void Init() {
             GetWindow<LevelEditor>().title = "Level Editor";
         }
 
+        private Serializer Serializer;
         #region Textures
 
         private Texture _fieldTexture;
@@ -25,7 +29,7 @@ namespace Assets.Editor.LevelEditor {
 
         #region Drawing
 
-        private Tabs.Tabs.Tabs _tabs;
+        private Tabs.Tabs _tabs;
         private LevelInfo _level;
 
         private LevelInfo Level {
@@ -58,7 +62,7 @@ namespace Assets.Editor.LevelEditor {
             _blockTab = new BlockTab(_blockTextures);
             _parmsTab = new ParametersTab();
 
-            _tabs = new Tabs.Tabs.Tabs(_parmsTab, _blockTab, _taskTab);
+            _tabs = new Tabs.Tabs(_parmsTab, _blockTab, _taskTab);
             
             _field = new FieldPanel(Consts.FIELD_WIDTH, Consts.FIELD_HEIGHT, new Vector2(Consts.BLOCK_WIDTH, Consts.BLOCK_HEIGHT), _blockTextures);
 
@@ -66,13 +70,15 @@ namespace Assets.Editor.LevelEditor {
         }
 
         private void LoadLevel() {
-            var filename = EditorUtility.OpenFilePanel("Open level", Path.Combine(ROOT_PATH, Consts.LEVELS_PATH), "xml");
+            var filename = EditorUtility.OpenFilePanel("Open level", Consts.LEVELS_PATH, "xml");
             if (string.IsNullOrEmpty(filename)) {
                 return;
             }
-            try {
-                _loadedFilename = filename.Replace(ROOT_PATH, "");
-                _loadedFilename = _loadedFilename.Replace(".xml", "");
+            try
+            {
+                _loadedFilename = filename;
+               // _loadedFilename = filename.Replace(ROOT_PATH, "");
+               // _loadedFilename = _loadedFilename.Replace(".xml", "");
                 Level = Serializer.Deserialize<LevelInfo>(_loadedFilename);
             }
             catch (Exception e) {
@@ -82,14 +88,15 @@ namespace Assets.Editor.LevelEditor {
 
         protected void Save() {
             if (string.IsNullOrEmpty(_loadedFilename)) {
-                var filename = EditorUtility.SaveFilePanel("Save as", Path.Combine(ROOT_PATH, Consts.LEVELS_PATH), "0", "xml");
+                var filename = EditorUtility.SaveFilePanel("Save as", Consts.LEVELS_PATH, "0", "xml");
                 if (string.IsNullOrEmpty(filename)) {
                     return;
                 }
-                _loadedFilename = filename.Replace(ROOT_PATH, "");
-                _loadedFilename = _loadedFilename.Replace(".xml", "");
+                _loadedFilename = filename;
+                //_loadedFilename = filename.Replace(ROOT_PATH, "");
+                //_loadedFilename = _loadedFilename.Replace(".xml", "");
             }
-            Serializer.Serialize(_loadedFilename, Level);
+            Serializer.Serialize(Level, _loadedFilename);
         }
 
         private void OnLevelLoaded() {

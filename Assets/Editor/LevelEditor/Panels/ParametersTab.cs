@@ -1,5 +1,5 @@
 ﻿using Assets.Editor.Tabs;
-
+using Assets.Scripts.Serialization.Levels;
 using UnityEditor;
 
 namespace Assets.Editor.LevelEditor.Panels {

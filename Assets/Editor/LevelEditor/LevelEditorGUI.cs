@@ -3,7 +3,7 @@
 namespace Assets.Editor.LevelEditor {
     partial class LevelEditor {
         protected void OnGUI() {
-            base.OnGUI();
+            //base.OnGUI();
             DrawField();
             GUILayout.BeginHorizontal();
             {
